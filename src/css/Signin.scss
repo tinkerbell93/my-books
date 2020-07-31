@@ -1,0 +1,113 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin a11y-hidden {
+  background-color: blue;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+$main-color: #6bb28d;
+$sub-color: #fff;
+$line-color: #e8e8e8;
+$radius: 5px;
+$shadow: 0px 5px 10px #579474;
+$transition: all 0.2s;
+
+.signin-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: $main-color;
+  @include flex-layout;
+  h1 {
+    @include a11y-hidden;
+  }
+  .layout {
+    width: 600px;
+    height: 400px;
+    background-color: $sub-color;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    @include flex-layout;
+    .left {
+      width: 60%;
+      height: 100%;
+      div {
+        width: 100%;
+        height: 100%;
+        border-radius: $radius;
+        background: {
+          image: url('../img/signin.jpg');
+          size: 80%;
+          color: $sub-color;
+          repeat: no-repeat;
+          position: center;
+        }
+      }
+    }
+    .right {
+      $grid-gap: 30px;
+      width: 40%;
+      h2 {
+        margin: 0;
+        font: {
+          size: 38px;
+          weight: 700;
+        }
+      }
+      p {
+        margin: 0;
+        padding-bottom: $grid-gap * 2;
+        font: {
+          size: 15px;
+        }
+      }
+      label {
+        display: block;
+        width: 80%;
+        input {
+          border: {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 2px solid $line-color;
+          }
+          outline: 0;
+          padding: 12px;
+          padding-left: 20px;
+          font: {
+            size: 13px;
+          }
+          margin-left: -15px;
+          background-color: transparent;
+          transition: $transition;
+          &:focus {
+            border-color: $main-color;
+          }
+        }
+      }
+      button {
+        width: 80px;
+        padding: 10px;
+        margin-top: $grid-gap;
+        border-radius: 50px;
+        border: 0;
+        background-color: $main-color;
+        color: $sub-color;
+        transition: $transition;
+        box-sizing: border-box;
+        cursor: pointer;
+        font: {
+          size: 13px;
+        }
+        &:hover {
+          box-shadow: 0px 2px 5px #4a7960;
+        }
+      }
+    }
+  }
+}
