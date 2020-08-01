@@ -15,7 +15,7 @@ $main-color: #6bb28d;
 $sub-color: #fff;
 $line-color: #e8e8e8;
 $radius: 5px;
-$shadow: 0px 5px 10px #579474;
+$shadow: 0px 0px 15px #397757;
 $transition: all 0.2s;
 
 .signin-wrapper {
@@ -31,8 +31,11 @@ $transition: all 0.2s;
     height: 400px;
     background-color: $sub-color;
     border-radius: $radius;
-    box-shadow: $shadow;
+    transition: $transition;
     @include flex-layout;
+    &:hover {
+      box-shadow: $shadow;
+    }
     .left {
       width: 60%;
       height: 100%;
@@ -114,20 +117,37 @@ $transition: all 0.2s;
       }
       button {
         width: 80px;
-        padding: 10px;
+        position: relative;
         margin-top: $grid-gap;
+        padding: 10px;
         border-radius: 50px;
         border: 0;
         background-color: $main-color;
         color: $sub-color;
         transition: $transition;
-        box-sizing: border-box;
         cursor: pointer;
+        overflow: hidden;
         font: {
           size: 13px;
         }
         &:hover {
+          // color: $main-color;
+          // background-color: $sub-color;
           box-shadow: 0px 2px 5px #4a7960;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -110%;
+          width: 20px;
+          height: 50px;
+          transform: skewX(20deg);
+          background: $sub-color;
+          transition: $transition;
+        }
+        &:hover::before {
+          left: 110%;
         }
       }
     }

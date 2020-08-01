@@ -40,10 +40,7 @@ class Signin extends React.Component {
               />
               <LockOutlined />
             </label>
-            <button onClick={this.click}>
-              Sing in
-              <span></span>
-            </button>
+            <button onClick={this.click}>Sing in</button>
           </div>
         </div>
       </div>
