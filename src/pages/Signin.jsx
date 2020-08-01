@@ -24,23 +24,26 @@ class Signin extends React.Component {
             <h2>Welcome</h2>
             <p>Enjoy My Books App</p>
             <label>
-              <UserOutlined />
               <input
                 type='text'
                 value={this.state.email}
                 onChange={this.change}
                 placeholder='이메일 입력'
               />
+              <UserOutlined />
             </label>
             <label>
-              <LockOutlined />
               <input
                 type='password'
                 ref={this.passwordRef}
                 placeholder='비밀번호 입력'
               />
+              <LockOutlined />
             </label>
-            <button onClick={this.click}>Sing in</button>
+            <button onClick={this.click}>
+              Sing in
+              <span></span>
+            </button>
           </div>
         </div>
       </div>

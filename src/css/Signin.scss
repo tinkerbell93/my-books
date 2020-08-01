@@ -61,7 +61,7 @@ $transition: all 0.2s;
       }
       p {
         margin: 0;
-        padding-bottom: $grid-gap * 2;
+        padding-bottom: $grid-gap * 1.5;
         font: {
           size: 15px;
         }
@@ -69,7 +69,16 @@ $transition: all 0.2s;
       label {
         display: block;
         width: 80%;
+        position: relative;
+        span {
+          font-size: 20px;
+          transition: $transition;
+          position: absolute;
+          top: 27px;
+          left: 0;
+        }
         input {
+          width: 100%;
           border: {
             top: 0;
             left: 0;
@@ -77,16 +86,29 @@ $transition: all 0.2s;
             bottom: 2px solid $line-color;
           }
           outline: 0;
-          padding: 12px;
-          padding-left: 20px;
+          padding: {
+            top: 30px;
+            bottom: 5px;
+            left: 30px;
+          }
           font: {
             size: 13px;
           }
-          margin-left: -15px;
           background-color: transparent;
           transition: $transition;
           &:focus {
             border-color: $main-color;
+            padding: {
+              left: 0;
+              right: 30px;
+            }
+          }
+          &:focus + span {
+            color: $main-color;
+            top: 10px;
+            font: {
+              size: 15px;
+            }
           }
         }
       }
