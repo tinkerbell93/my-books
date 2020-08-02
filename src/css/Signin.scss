@@ -1,0 +1,155 @@
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin a11y-hidden {
+  background-color: blue;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+$main-color: #6bb28d;
+$sub-color: #fff;
+$line-color: #e8e8e8;
+$radius: 5px;
+$shadow: 0px 0px 15px #397757;
+$transition: all 0.2s;
+
+.signin-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: $main-color;
+  @include flex-layout;
+  h1 {
+    @include a11y-hidden;
+  }
+  .layout {
+    width: 600px;
+    height: 400px;
+    background-color: $sub-color;
+    border-radius: $radius;
+    transition: $transition;
+    @include flex-layout;
+    &:hover {
+      box-shadow: $shadow;
+    }
+    .left {
+      width: 60%;
+      height: 100%;
+      div {
+        width: 100%;
+        height: 100%;
+        border-radius: $radius;
+        background: {
+          image: url('../img/signin.jpg');
+          size: 80%;
+          color: $sub-color;
+          repeat: no-repeat;
+          position: center;
+        }
+      }
+    }
+    .right {
+      $grid-gap: 30px;
+      width: 40%;
+      h2 {
+        margin: 0;
+        font: {
+          size: 38px;
+          weight: 700;
+        }
+      }
+      p {
+        margin: 0;
+        padding-bottom: $grid-gap * 1.5;
+        font: {
+          size: 15px;
+        }
+      }
+      label {
+        display: block;
+        width: 80%;
+        position: relative;
+        span {
+          font-size: 20px;
+          transition: $transition;
+          position: absolute;
+          top: 27px;
+          left: 0;
+        }
+        input {
+          width: 100%;
+          border: {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 2px solid $line-color;
+          }
+          outline: 0;
+          padding: {
+            top: 30px;
+            bottom: 5px;
+            left: 30px;
+          }
+          font: {
+            size: 13px;
+          }
+          background-color: transparent;
+          transition: $transition;
+          &:focus {
+            border-color: $main-color;
+            padding: {
+              left: 0;
+              right: 30px;
+            }
+          }
+          &:focus + span {
+            color: $main-color;
+            top: 10px;
+            font: {
+              size: 15px;
+            }
+          }
+        }
+      }
+      button {
+        width: 80px;
+        position: relative;
+        margin-top: $grid-gap;
+        padding: 10px;
+        border-radius: 50px;
+        border: 0;
+        background-color: $main-color;
+        color: $sub-color;
+        transition: $transition;
+        cursor: pointer;
+        overflow: hidden;
+        font: {
+          size: 13px;
+        }
+        &:hover {
+          // color: $main-color;
+          // background-color: $sub-color;
+          box-shadow: 0px 2px 5px #4a7960;
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -110%;
+          width: 20px;
+          height: 50px;
+          transform: skewX(20deg);
+          background: $sub-color;
+          transition: $transition;
+        }
+        &:hover::before {
+          left: 110%;
+        }
+      }
+    }
+  }
+}
