@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@mixin flex-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin a11y-hidden {
+  background-color: blue;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+$main-color: #6bb28d;
+$sub-color: #fff;
+$line-color: #e8e8e8;
+$radius: 5px;
+$shadow: 0px 0px 15px #397757;
+$transition: all 0.2s;

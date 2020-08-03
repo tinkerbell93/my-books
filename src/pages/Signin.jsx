@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { message } from 'antd';
-import withAuth from '../hocs/withAuth';
+import withoutAuth from '../hocs/withoutAuth';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 import '../css/Signin.scss';
@@ -25,18 +25,18 @@ class Signin extends React.Component {
             <p>Enjoy My Books App</p>
             <label>
               <input
-                type='text'
+                type="text"
                 value={this.state.email}
                 onChange={this.change}
-                placeholder='이메일 입력'
+                placeholder="이메일 입력"
               />
               <UserOutlined />
             </label>
             <label>
               <input
-                type='password'
+                type="password"
                 ref={this.passwordRef}
-                placeholder='비밀번호 입력'
+                placeholder="비밀번호 입력"
               />
               <LockOutlined />
             </label>
@@ -88,4 +88,4 @@ class Signin extends React.Component {
   };
 }
 
-export default withAuth(Signin, false);
+export default withoutAuth(Signin);
